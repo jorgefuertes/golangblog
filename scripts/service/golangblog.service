@@ -1,0 +1,15 @@
+[Unit]
+Description=GolangBlog Server
+After=network.target auditd.service
+
+[Service]
+Type=simple
+ExecStart=/home/golangblog/golangblog -e prod -i 127.0.0.1 -p 3000
+Restart=always
+User=golangblog
+WorkingDirectory=/home/golangblog
+WorkingDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+Alias=golangblog.service
