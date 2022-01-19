@@ -8,6 +8,7 @@ import (
 
 	"golangblog/controller"
 	"golangblog/internal/banner"
+	"golangblog/internal/blog"
 	"golangblog/internal/build"
 	"golangblog/internal/cfg"
 	"golangblog/internal/dev"
@@ -52,6 +53,9 @@ func main() {
 
 	// root path
 	cfg.Main.Root = filepath.Dir(".")
+
+	// load posts
+	blog.LoadAllPosts(cfg.Main.Root)
 
 	// template engine
 	var engine *jet.Engine
